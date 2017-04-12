@@ -15,4 +15,6 @@ public interface HttpApi {
     @FormUrlEncoded
     @POST("macro/user/login.htm")
     Observable<Response<Object>> login(@Field("tel") String tel, @Field("password") String password);
+
+
 }

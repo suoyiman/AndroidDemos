@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.chris.qcstest.http.HttpUtil;
+import com.example.chris.qcstest.http.MyCallback;
 import com.example.chris.qcstest.http.MySubscriber;
+import com.example.chris.qcstest.http.RetrofitUtil;
 import com.example.chris.qcstest.http.response.Response;
 
 import rx.android.schedulers.AndroidSchedulers;
@@ -58,6 +60,21 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this,"on failed",Toast.LENGTH_LONG).show();
                             }
                         });
+
+                RetrofitUtil.createHttpClient().login("15736759029","123456").enqueue(new MyCallback<Object>(MainActivity.this) {
+                    @Override
+                    public void onSuccess(Response<Object> objectResponse) {
+
+                    }
+
+                    @Override
+                    public void onFailed(Response<Object> objectResponse) {
+
+                    }
+                });
+
+
+
             }
         });
 

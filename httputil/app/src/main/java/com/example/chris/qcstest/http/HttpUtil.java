@@ -1,6 +1,6 @@
 package com.example.chris.qcstest.http;
 
-import com.example.chris.qcstest.Constant;
+import com.example.chris.qcstest.URLConstant;
 
 import retrofit2.GsonConverterFactory;
 import retrofit2.Retrofit;
@@ -12,10 +12,10 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 
 public class HttpUtil {
     private static HttpApi instance;
-    public static HttpApi getInstant(){
+    public static synchronized HttpApi getInstant(){
         if(instance==null){
             instance = new Retrofit.Builder()
-                    .baseUrl(Constant.BASE_URL)
+                    .baseUrl(URLConstant.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .build()
