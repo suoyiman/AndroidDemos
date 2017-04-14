@@ -9,7 +9,7 @@ import com.example.chris.qcstest.http.HttpUtil;
 import com.example.chris.qcstest.http.MyCallback;
 import com.example.chris.qcstest.http.MySubscriber;
 import com.example.chris.qcstest.http.RetrofitUtil;
-import com.example.chris.qcstest.http.response.Response;
+import com.example.chris.qcstest.http.response.BaseResponse;
 
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 //                        .take(1)
 //                        .subscribeOn(Schedulers.io())
 //                        .observeOn(AndroidSchedulers.mainThread())
-//                        .subscribe(new Subscriber<Response<Object>>() {
+//                        .subscribe(new Subscriber<BaseResponse<Object>>() {
 //                            @Override
 //                            public void onCompleted() {
 //
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 //                            }
 //
 //                            @Override
-//                            public void onNext(Response<Object> objectResponse) {
+//                            public void onNext(BaseResponse<Object> objectResponse) {
 //                                Toast.makeText(MainActivity.this,objectResponse.getMessage(),Toast.LENGTH_LONG).show();
 //                            }
 //                        });
@@ -51,24 +51,24 @@ public class MainActivity extends AppCompatActivity {
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(new MySubscriber<Object>(MainActivity.this) {
                             @Override
-                            public void onSuccess(Response<Object> objectResponse) {
+                            public void onSuccess(BaseResponse<Object> objectResponse) {
                                 Toast.makeText(MainActivity.this,objectResponse.getMessage(),Toast.LENGTH_LONG).show();
                             }
 
                             @Override
-                            public void onFailed(Response<Object> objectResponse) {
+                            public void onFailed(BaseResponse<Object> objectResponse) {
                                 Toast.makeText(MainActivity.this,"on failed",Toast.LENGTH_LONG).show();
                             }
                         });
 
                 RetrofitUtil.createHttpClient().login("15736759029","123456").enqueue(new MyCallback<Object>(MainActivity.this) {
                     @Override
-                    public void onSuccess(Response<Object> objectResponse) {
+                    public void onSuccess(BaseResponse<Object> objectResponse) {
 
                     }
 
                     @Override
-                    public void onFailed(Response<Object> objectResponse) {
+                    public void onFailed(BaseResponse<Object> objectResponse) {
 
                     }
                 });

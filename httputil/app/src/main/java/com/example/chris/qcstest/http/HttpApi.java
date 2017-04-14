@@ -1,6 +1,6 @@
 package com.example.chris.qcstest.http;
 
-import com.example.chris.qcstest.http.response.Response;
+import com.example.chris.qcstest.http.response.BaseResponse;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -14,7 +14,7 @@ import rx.Observable;
 public interface HttpApi {
     @FormUrlEncoded
     @POST("macro/user/login.htm")
-    Observable<Response<Object>> login(@Field("tel") String tel, @Field("password") String password);
+    Observable<BaseResponse<Object>> login(@Field("tel") String tel, @Field("password") String password);
 
 
 }

@@ -4,7 +4,7 @@ package com.example.chris.qcstest.http.response;
  * Created by chris on 17-4-10.
  */
 
-public class Response<T> {
+public class BaseResponse<T> {
 
     /**
      * success : true

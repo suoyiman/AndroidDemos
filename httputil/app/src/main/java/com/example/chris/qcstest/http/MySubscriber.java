@@ -3,7 +3,7 @@ package com.example.chris.qcstest.http;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.example.chris.qcstest.http.response.Response;
+import com.example.chris.qcstest.http.response.BaseResponse;
 
 import rx.Subscriber;
 
@@ -11,14 +11,14 @@ import rx.Subscriber;
  * Created by chris on 17-4-10.
  */
 
-public  abstract class  MySubscriber<T> extends Subscriber<Response<T>> {
+public  abstract class  MySubscriber<T> extends Subscriber<BaseResponse<T>> {
     private Context mContext;
     public MySubscriber(Context context) {
         mContext = context;
     }
 
-    abstract public void onSuccess(Response<T> tResponse);
-    abstract public void onFailed(Response<T> tResponse);
+    abstract public void onSuccess(BaseResponse<T> tResponse);
+    abstract public void onFailed(BaseResponse<T> tResponse);
     @Override
     public void onCompleted() {
 
@@ -30,7 +30,7 @@ public  abstract class  MySubscriber<T> extends Subscriber<Response<T>> {
     }
 
     @Override
-    public void onNext(Response<T> tResponse) {
+    public void onNext(BaseResponse<T> tResponse) {
         if(tResponse.isSuccess()){
             onSuccess(tResponse);
         }else {

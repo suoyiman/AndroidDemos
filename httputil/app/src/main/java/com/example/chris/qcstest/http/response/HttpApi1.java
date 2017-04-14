@@ -12,5 +12,5 @@ import retrofit2.http.POST;
 public interface HttpApi1 {
     @FormUrlEncoded
     @POST("macro/user/login.htm")
-    Call<Response<Object>> login(@Field("tel") String tel, @Field("password") String password);
+    Call<BaseResponse<Object>> login(@Field("tel") String tel, @Field("password") String password);
 }
