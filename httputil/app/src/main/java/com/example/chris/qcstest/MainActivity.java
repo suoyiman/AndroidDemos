@@ -79,11 +79,4 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
- Observable thread is : RxNewThreadScheduler-1
- After observeOn(mainThread), current thread is: main
- After observeOn(io), current thread is : RxCachedThreadScheduler-2
- Observer thread is :RxCachedThreadScheduler-2
-
-
 }
