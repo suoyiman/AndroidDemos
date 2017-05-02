@@ -10,7 +10,13 @@ import com.example.chris.qcstest.http.MyCallback;
 import com.example.chris.qcstest.http.MySubscriber;
 import com.example.chris.qcstest.http.RetrofitUtil;
 import com.example.chris.qcstest.http.response.BaseResponse;
+import com.google.gson.Gson;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -63,17 +69,22 @@ public class MainActivity extends AppCompatActivity {
 
                 RetrofitUtil.createHttpClient().login("15736759029","123456").enqueue(new MyCallback<Object>(MainActivity.this) {
                     @Override
-                    public void onSuccess(BaseResponse<Object> objectResponse) {
-
-                    }
-
-                    @Override
-                    public void onFailed(BaseResponse<Object> objectResponse) {
+                    public void onSuccess(BaseResponse<Object> tResponse) {
 
                     }
                 });
 
 
+                Map<String, Object> params = new HashMap();
+                params.put("userName", "xxx");
+                params.put("password", "123456");
+                RequestBody requestBody = RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), new Gson().toJson(params));
+                RetrofitUtil.createHttpClient().login2(requestBody).enqueue(new MyCallback<Object>(MainActivity.this) {
+                    @Override
+                    public void onSuccess(BaseResponse<Object> tResponse) {
+
+                    }
+                });
 
             }
         });

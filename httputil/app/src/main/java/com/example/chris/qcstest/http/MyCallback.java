@@ -22,7 +22,7 @@ public abstract class MyCallback<T> implements Callback<BaseResponse<T>> {
 
     abstract public void onSuccess(BaseResponse<T> tResponse);
 
-    abstract public void onFailed(BaseResponse<T> tResponse);
+    public void onFailed(BaseResponse<T> tResponse){}
 
     @Override
     public void onResponse(Call<BaseResponse<T>> call, retrofit2.Response<BaseResponse<T>> response) {
