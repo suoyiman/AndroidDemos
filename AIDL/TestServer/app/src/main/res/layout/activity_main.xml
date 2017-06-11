@@ -12,6 +12,7 @@
     tools:context="com.chris.testserver.MainActivity">
 
     <TextView
+        android:onClick="start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"/>

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
+import android.widget.Toast;
 
 /**
  * Email: suoyiman@163.coom
@@ -15,6 +16,7 @@ public class CalcService extends Service{
 
     public void onCreate()
     {
+        Toast.makeText(getApplicationContext(),"CalcService oncreate",Toast.LENGTH_SHORT).show();
         Log.e(TAG, "onCreate");
     }
 

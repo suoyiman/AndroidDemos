@@ -29,6 +29,7 @@ public class MainActivity extends Activity {
         {
             Log.e("client", "onServiceConnected");
             mCalcAidl = ICalcAIDL.Stub.asInterface(service);
+            Toast.makeText(MainActivity.this, "绑定成功", Toast.LENGTH_SHORT).show();
         }
     };
 
